@@ -1,0 +1,30 @@
+﻿@model ProductOnContainers.Web.WebMvc.ViewModels.PaginationInfo
+
+<div>
+    <div class="container">
+        <article class="row">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" asp-for="@Model.Previous" id="Previous"
+                           asp-controller="Catalog"
+                           asp-action="Index"
+                           asp-route-page="@(Model.ActualPage - 1)">Previous</a>
+                    </li>
+
+                    <li class="page-item">
+                        <span>
+                            Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages
+                        </span>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link"  asp-for="@Model.Next" id="Next"
+                           asp-controller="Catalog"
+                           asp-action="Index"
+                           asp-route-page="@(Model.ActualPage + 1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </div>
+</div>
